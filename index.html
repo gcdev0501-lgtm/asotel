@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Asotel</title>
+    
+</head>
+
+<body>
+
+     <!-- HEADER -->
+     <header class="header">
+   
+        <div class="top-bar">
+            <span id="fecha-hora" class="date"></span>
+            <input type="text" placeholder="Buscar..." class="search-box">
+        </div>
+        <script>
+    function actualizarFechaHora() {
+          const ahora = new Date();
+
+          const opciones = { 
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+    };
+    // Convierte en texto bonito en español
+    const fechaFormateada = ahora.toLocaleDateString('es-ES', opciones);
+    // Primera letra en mayúscula
+    const fechaMayus = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+
+    document.getElementById("fecha-hora").textContent = fechaMayus;
+}
+
+    // Al cargar la página
+    actualizarFechaHora();
+    // Por si quieres que cambie cada día sin recargar (1 minuto)
+    setInterval(actualizarFechaHora, 60000);
+        </script>
+
+        <div class="logo">
+        <div class="logo-container">
+            <img src="img/ImgLOGOAsotel_final3.jpg" alt="Logo ASOTEL" class="logo-final">
+            <h1>ASOTEL</h1>
+            <img src="img/d3c7b-bandera_Asotel.jpg" alt="bandera1" class="logo-image">
+        </div>
+                <p class="tagline">Asociación de Técnicos Pensionados de la EDT</p>
+        </div>
+                
+        <nav class="menu">
+       
+
+            <ul>
+                <li><a href="#">Locales</a></li>
+                <li><a href="#">Región</a></li>
+                <li><a href="#">País</a></li>
+                <li><a href="#">Política</a></li>
+                <li><a href="#">Judicial</a></li>
+                <li><a href="#">Mundo</a></li>
+                <li><a href="#">Deportes</a></li>
+                <li><a href="#">Entretenimiento</a></li>
+            </ul>
+        </nav>
+     </header>
+     
+       <div class="nieve-nav"></div>
+             <div class="banner-navidad-top">
+    <img src="img/navidad5.png" alt="Navidad ASOTEL">
+</div>
+
+     
+
+
+
+
+      <section class="noticias" >
+      <div class="elheraldo">
+      <h3 class="ingl-heading" onclick="mostrarNoticia('noticiaA')">
+      <a>La candidata de Olaya Herrera, en Cartagena, ganó el premio al mejor disfraz, un homenaje al Joe Arroyo
+      </a>
+      </h3>
+      <time datetime="2025-11-03T17:02:18.124Z">12:02 PM</time>
+      </div>
+      
+
+      <div class="elheraldo">
+      <h3 class="ingl-heading" onclick="mostrarNoticia('noticiaB')">
+      <a>Mindefensa atribuye a disidencias de 'Iván Mordisco' el atentado con carrobomba en Suárez, Cauca, y ofrece recompensa
+      </a>
+      </h3>
+      <time datetime="2025-11-03T17:01:17.836Z">12:01 PM</time>
+      </div>
+
+      <div class="elheraldo">
+      <h3 class="ingl-heading" onclick="mostrarNoticia('noticiaC')">
+      <a>La candidata de Olaya Herrera, en Cartagena, ganó el premio al mejor disfraz, un homenaje al Joe Arroyo
+      </a>
+      </h3>
+      <time datetime="2025-11-03T17:02:18.124Z">12:02 PM</time>
+      </div>
+
+      <div class="elheraldo">
+      <h3 class="ingl-heading"onclick="mostrarNoticia('noticiaD')">
+      <a>Mindefensa atribuye a disidencias de 'Iván Mordisco' el atentado con carrobomba en Suárez, Cauca, y ofrece recompensa
+      </a>
+      </h3>
+      <time datetime="2025-11-03T17:01:17.836Z">12:01 PM</time>
+      </div>
+     </section> 
+
+    <script>
+// esperar que cargue el DOM (por si los scripts están arriba)
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('overlay');
+
+  window.mostrarNoticia = function(id) {
+    // ocultar cualquier modal abierto
+    document.querySelectorAll('.noticia').forEach(n => {
+      n.classList.remove('active');
+      n.classList.add('oculto');
+    });
+
+    // mostrar la seleccionada
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('oculto');
+    modal.classList.add('active');
+
+    // activar overlay
+    if (overlay) overlay.classList.add('active');
+
+    // bloquear scroll detrás
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.volver = function() {
+    // ocultar todas las noticias
+    document.querySelectorAll('.noticia').forEach(n => {
+      n.classList.remove('active');
+      n.classList.add('oculto');
+    });
+
+    // quitar overlay
+    if (overlay) overlay.classList.remove('active');
+
+    // restaurar scroll
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  };
+
+  // clic en overlay cierra modal (opcional)
+  if (overlay) overlay.addEventListener('click', volver);
+});
+</script>
+
+
+    <!-- MAIN -->
+     
+    <main class="main-content">
+
+        <section class="main-article">
+            
+            <h2>LOCALES</h2>
+            <img src="img/img_junta03.jpg" alt="Noticia principal">
+            <h1>JUNTA DIRECTIVA ASOTEL 2025.</h1>
+            <p>Conformada por: Presidente. Alfredo Perez. Fiscal: Roberto Donado. Secretario: Cesar Solsno.
+               Tesorero: Timoleon Guarguati. Vocales: Gilberto Salas. Jose Suarez. Jose Rodriguez.
+            </p>
+              <!-- HTML: pega esto donde quieras el slider -->
+<div class="slider" id="slider">
+    <div class="fade-slides">
+        <img src="img/slider_elcorral.jpg" class="fade active" alt="Imagen 1">
+        <img src="img/sld_subway.jpg" class="fade" alt="Imagen 2">
+        <img src="img/sld-colpensiones2.jpg" class="fade" alt="Imagen 3">
+        <img src="img/slider_probisiniors.jpg" class="fade" alt="Imagen 4">
+        <img src="img/sld-farmavida.jpg" class="fade" alt="Imagen 5">
+    </div>
+</div>
+
+<script>
+    let index = 0;
+    const slides = document.querySelectorAll('.fade-slides img');
+
+    function showSlide(i) {
+        slides.forEach(img => img.classList.remove('active'));
+        slides[i].classList.add('active');
+    }
+
+    function nextSlide() {
+        index = (index + 1) % slides.length;  // vuelve del último al primero sin retroceder
+        showSlide(index);
+    }
+
+    setInterval(nextSlide, 4000);
+</script>
+
+
+        <section class="articulos"  id="lista-articulos">
+            
+    <article class="articulo" onclick="mostrarNoticia('noticia1')">
+      <img src="img/Newscom-Desigualdad.jpg" alt="Imagen del artículo 1" class="img1">
+      <h2>Economía colombiana en 2025</h2>
+      <p>El gobierno anunció nuevas medidas para fortalecer la economía y reducir la desigualdad social.
+         Expertos opinan que las reformas podrían tener efectos positivos a mediano plazo.
+      </p>
+      </article>
+      
+    <article class="articulo"  onclick="mostrarNoticia('noticia2')">
+      <img src="img/educacionfuturodigital252.jpg" alt="Imagen del artículo 2" class="img1">
+      <h2>Innovación y tecnología en Latinoamérica</h2>
+      <p>Las startups tecnológicas están creciendo en toda la región. Colombia se posiciona como uno de los países líderes en innovación digital.</p>
+      </article>
+
+    <article class="articulo"  onclick="mostrarNoticia('noticia3')">
+      <img src="img/la-educacion-del-futuro--.jpg" alt="Imagen del artículo 3" class="img1">
+      <h2>Educación y futuro digital</h2>
+      <p>El Ministerio de Educación propone incluir programación y pensamiento lógico en los colegios públicos desde el nivel primario.</p>
+      </article>
+    
+    <article class="articulo" onclick="mostrarNoticia('noticia4')">
+      <img src="img/Ivan-Cepeda.jpg" alt="Imagen del artículo 4" class="img1">
+      <h2>Ivan Cepeda gana consulta popular</h2>
+      <p> El senador colombiano Iván Cepeda ganó este domingo en Colombia la consulta del Partido de coalición Pacto Histórico (izquierda) que reportó más de 2,5 millones de votos y se convirtió
+         en el candidato de la izquierda para las elecciones presidenciales que se realizarán en 2026.</p>
+      </article>
+
+    <article class="articulo" onclick="mostrarNoticia('noticia5')">
+      <img src="img/imagescolpensiones.jpeg" alt="Imagen del artículo 4" class="img1">
+      <h2>Actualización sobre pensiones</h2>
+      <p>El presidente Gustavo Petro ratificó su compromiso con la protección de los fondos de pensiones y anunció nuevos mecanismos de control y transparencia.</p>
+      </article>
+
+    <article class="articulo" onclick="mostrarNoticia('noticia6')">
+      <img src="img/carnaval.jpeg" alt="Imagen del artículo 4" class="img1">
+      <h2>El Carnaval de Barranquilla 2025 se proyecta con un impacto económico histórico</h2>
+      <p>de aproximadamente $880 mil millones y la creación de unos 193 mil empleos directos e indirectos. 
+        La festividad espera recibir a unos 780 mil asistentes y se estima que se venderán 2.1 millones de entradas. 
+        Este impacto se distribuirá en sectores como el turismo, la hotelería, la gastronomía, el transporte y el comercio en general. </p>
+      </article>
+
+      
+        </section>
+        
+      </section>
+      
+
+      
+
+
+        <aside class="sidebar">
+            
+            <div class="editorial">
+                <h3>EDITORIAL</h3>
+                <h4>Medio Informativo</h4>
+                <p>Queridos socios(as) de Asotel. 
+                   Hoy regalamos a ustedes, este medio informativo que los mantendrá al tanto de los acontecimientos nuestros. 
+                   Un paso más que damos en el desarrollo tecnológico e informativo de nuestra amada sociedad Asotel. Sera un medio muy llamativo, que mostrara con lujos de detalles nuestras actividades y también noticias de interés local, nacional e internacional. 
+                   Daremos inicio con un despliegue fotográfico de algunas actividades que hemos realizado últimamente, el cual mostrara esa gran alegría que nos caracteriza como una sociedad unida por una gran hermandad.  
+                   Se mostrará una reseña histórica de lo que es nuestra sociedad Asotel, escrita por el compañero ROBERTO DONADO que narra como dimos nuestros primeros pasos para construir una entidad combativa y llena de principios morales y justicia humana. 
+                   Se ira conformando un equipo periodístico aficionado, que nutrirá este medio de información. 
+                   Invitamos a nuestros socios apoyar este proyecto, expresando críticas constructivas que nos llevaran día a día a mejorar la calidad de este medio de información. 
+
+                   </p>
+                   <img src="img/foto_editorial_jose.jpg" alt="editorial asotel" class="img_editorial">
+                   <p>J J RODRIGUEZ.</p>
+                   <p></p>
+                   <p>DIRECTOR</p>
+                <a href="https://open.spotify.com/intl-es" class="spotify-btn">Escuchar en Spotify</a>
+            </div>
+
+          
+            <div class="recommended">
+                <h3>Recomendados</h3>
+                <ul>
+                 <p>📅 Próxima pelea:</p>
+                <strong>Israel Adesanya vs Alex Pereira</strong><br>
+                <small>Domingo 27 de octubre - 8:00 PM</small>
+                <li><h4><a href="//www.rojadirectaenvivo.pl/home4.php">//www.rojadirectaenvivo.pl/home4.php</a></h4></li>
+                </div class="ad-box"><img src="" alt=""></div>
+                    
+                </ul> 
+            </div>
+
+            <div class="recommended">
+                <h3>Recomendados</h3>
+                <ul>
+                    <li><a href="#">Columna de Opinión: Frente a la democracia amenazada</a></li>
+                    <li><a href="#">Últimas noticias del día</a></li>
+                    
+                    
+                </ul>
+            </div>
+
+            <div class="recommended">
+                <h3>Recomendados</h3>
+                <ul>
+                    <li><a href="#">Columna de Opinión: Frente a la democracia amenazada</a></li>
+                    <li><a href="#">Últimas noticias del día</a></li>
+                    <li><a href="#">Últimas noticias del día</a></li>
+                    
+                </ul>
+            </div>
+
+
+     <div class="encuesta_aside">      
+            <!-- Formulario de entrada de datos -->
+            <form id="formulario-datos" style="position:relative;">
+    <label for="nombreUsuario">Ingrese su nombre:</label>
+    <input type="text" id="nombreUsuario" placeholder="Escribe aquí tu nombre">
+
+    <label for="cedulaUsuario">Cédula:</label>
+    <input type="number" id="cedulaUsuario" placeholder="Ingrese su cédula">
+
+    <button type="submit">Enviar datos</button>
+    <button id="btnAdmin" type="button" class="adminBtn">ADMIN</button>
+</form>
+            <!-- Encuesta que estará oculta al inicio -->
+<div id="contenedor-encuesta" style="display:none; margin-top:20px;">
+    <h2 id="saludo"></h2>
+
+    <p>1. ¿Cómo califica el servicio?</p>
+    <label><input type="radio" name="p1" value="bueno"> Bueno</label><br>
+    <label><input type="radio" name="p1" value="regular"> Regular</label><br>
+    <label><input type="radio" name="p1" value="malo"> Malo</label><br>
+
+    <button id="guardarEncuesta">Enviar Encuesta</button>
+</div>
+
+<!-- RESULTADOS -->
+<div id="resultados" style="display:none; margin-top:30px;">
+    <h2>Resultados de la encuesta</h2>
+    <table id="table_re" border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Respuesta</th>
+            </tr>
+        </thead>
+        <tbody id="tablaResultados"></tbody>
+    </table>
+    <button>ver mas</button>
+    <button id="btnBorrarTodo" style="margin-top:20px; background:#c62828; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer;">
+    🗑️ Borrar toda la información (Admin)
+</button>
+</div>
+</div> 
+
+                 <div class="widget-instagram">
+
+    
+
+                </div>
+
+       
+        </aside>
+          </div>
+        
+    </main>
+
+    <div id="overlay" class="overlay oculto"></div>
+<div id="modal-noticia" class="noticia oculto"></div>
+<div id="overlay" class="oculto"></div>
+
+     <div class="nieve-nav"></div>
+             <div class="banner-navidad-top">
+    <img src="img/navidad5.png" alt="Navidad ASOTEL">
+</div>
+
+
+  
+
+
+    <!-- 🔹 Noticia ampliada (OCULTA AL INICIO) -->
+  <section id="noticia1" class="noticia oculto">
+    <img src="img/Newscom-Desigualdad.jpg" alt="Imagen del articulo 1" class="img1">
+    <h1>Economía colombiana en 2025</h1>
+    <p>El gobierno nacional anunció un ambicioso paquete de reformas económicas que busca fortalecer la inversión, mejorar la equidad social y reducir la brecha de ingresos entre regiones.
+      Según el ministro de Hacienda, el plan contempla incentivos tributarios para pequeñas y medianas empresas, apoyo a la formalización laboral, una estrategia de modernización tecnológica y programas de inversión pública en infraestructura sostenible.
+      Estas medidas, presentadas por el Ministerio de Hacienda y el Departamento Nacional de Planeación, se enmarcan dentro del plan “Colombia Productiva 2025”, cuyo objetivo principal es lograr un crecimiento económico sostenido superior al 4% anual durante los próximos cinco años.
+      Entre las reformas más destacadas se encuentra la creación de un Fondo Nacional para la Innovación y el Empleo, destinado a financiar proyectos de transformación digital y capacitación laboral en regiones históricamente rezagadas. Este fondo se nutrirá con recursos provenientes de la reforma tributaria progresiva aprobada a finales de 2024, que aumentó los impuestos a las rentas más altas y redujo la carga a las microempresas.
+      Los analistas económicos han recibido las medidas con moderado optimismo. Para María Fernanda Gómez, economista de la Universidad Nacional, “el paquete fiscal es ambicioso, pero si se ejecuta con disciplina y transparencia, puede marcar el inicio de un nuevo ciclo de crecimiento sostenible”.
+      Sin embargo, también advirtió que “la clave estará en mantener la estabilidad fiscal y el control de la inflación, especialmente en un contexto internacional de tasas de interés altas y volatilidad cambiaria”.
+      Por su parte, el sector empresarial ha valorado positivamente los incentivos a la inversión en energías renovables y tecnología verde, pues podrían generar más de 150.000 empleos nuevos en los próximos tres años.
+      El presidente de la ANDI, Bruce Mac Master, señaló que “la transformación productiva que propone el Gobierno podría posicionar a Colombia como un actor regional en innovación, siempre y cuando se garantice la seguridad jurídica para los inversionistas”.
+      En cuanto a los hogares colombianos, el gobierno proyecta que el plan económico reducirá en un 10% el costo promedio de los alimentos básicos, gracias a una mejora en la logística y la infraestructura rural. También se contempla una ampliación del subsidio al transporte público en las principales ciudades, con el fin de aliviar el gasto de las familias de menores ingresos.
+      Finalmente, el Banco de la República respaldó la iniciativa, pero subrayó la necesidad de evitar un sobreendeudamiento estatal. En su más reciente informe, el organismo central recomendó mantener la tasa de interés estable hasta observar resultados concretos en la inflación, que cerró 2024 en 6,8%, según el DANE.
+      En conclusión, el 2025 se perfila como un año decisivo para la economía colombiana. Si las reformas se implementan de manera efectiva y se logra el equilibrio entre crecimiento, equidad y estabilidad, Colombia podría consolidar una de las economías más dinámicas de América Latina durante la segunda mitad de la década.
+      “Queremos una economía más competitiva, más justa y que funcione para todos los colombianos, no solo para unos pocos sectores”, afirmó el funcionario durante la presentación del proyecto.
+    </p>
+     <button onclick="volver()">← Volver</button>
+  </section>
+
+  <section id="noticia2" class="noticia oculto">
+    <img src="img/educacionfuturodigital252.jpg" alt="Imagen del artículo 2" class="img1">
+      <h2>Innovación y tecnología en Latinoamérica</h2>
+      <p>Las startups tecnológicas están creciendo en toda la región. 
+        Colombia se posiciona como uno de los países líderes en innovación digital.
+        La educación digital (edtech) también ha crecido de forma notable con plataformas que ofrecen cursos virtuales, simuladores de programación, herramientas para colegios y sistemas de aprendizaje adaptativo. Estas soluciones han sido adoptadas por instituciones educativas en Perú, México y Argentina, consolidando la presencia colombiana en el mercado regional.
+        Expertos afirman que uno de los desafíos principales para mantener el ritmo de crecimiento será fortalecer la infraestructura tecnológica, mejorar la conectividad en zonas rurales y fomentar políticas que impulsen la investigación y el desarrollo. Sin embargo, las proyecciones para el 2025 y 2026 son optimistas: se espera que la industria tecnológica contribuya con más del 6% del PIB nacional, una cifra histórica para el país.
+        En resumen, Latinoamérica vive un momento de transformación, y Colombia se destaca como un protagonista clave en la innovación y el desarrollo tecnológico. Con un ecosistema emprendedor robusto, un talento digital en expansión y un interés creciente por parte de inversionistas globales, el país se perfila como un referente en tecnología dentro y fuera de la región.
+        En materia de gobierno digital, Colombia continúa avanzando hacia la modernización de los servicios públicos mediante portales electrónicos, atención ciudadana automatizada y procesos administrativos basados en inteligencia artificial. Esto ha mejorado la transparencia, reducido trámites y facilitado la interacción entre los ciudadanos y el Estado.
+      </p>
+       <button onclick="volver()">← Volver</button>
+   </section>
+
+   <section id="noticia3" class="noticia oculto">
+    <img src="img/la-educacion-del-futuro--.jpg" alt="Imagen del artículo 3" class="img1">
+      <h2>Educación y futuro digital</h2>
+      <p>El Ministerio de Educación propone incluir programación y pensamiento lógico en los colegios
+         públicos desde el nivel primario.
+         El Ministerio de Educación Nacional anunció una ambiciosa estrategia para transformar el sistema educativo colombiano mediante la inclusión de programación, robótica y pensamiento lógico desde los primeros años de la educación básica.
+         Según explicó la ministra de Educación, María Victoria Angulo, la iniciativa pretende que los niños “no solo aprendan a usar la tecnología, sino a crearla”. El programa comenzará con un plan piloto en 300 colegios públicos de 20 departamentos, donde se implementarán módulos de pensamiento computacional, algoritmos básicos, lógica y programación visual adaptada a la edad de los estudiantes.
+         “Queremos que nuestros niños y niñas desarrollen habilidades del siglo XXI: resolución de problemas, pensamiento crítico y creatividad digital. No se trata de reemplazar materias tradicionales, sino de integrarlas con la tecnología”, señaló la ministra durante la presentación oficial del programa.
+         La estrategia cuenta con el apoyo de organismos internacionales como la UNESCO y el Banco Interamericano de Desarrollo (BID), que han destacado el potencial de Colombia para convertirse en un referente regional de educación digital inclusiva.
+         Además, empresas tecnológicas nacionales e internacionales han manifestado su interés en participar a través de donaciones de equipos, capacitación docente y desarrollo de contenidos interactivos.
+         El plan contempla la formación de más de 25.000 docentes en competencias digitales y didácticas de programación, a través de cursos en línea y talleres presenciales. Para garantizar la cobertura, el Ministerio anunció una inversión de más de 200.000 millones de pesos en infraestructura tecnológica, conectividad y material educativo.
+         Expertos en pedagogía destacan que enseñar programación desde edades tempranas no solo fortalece las competencias digitales, sino que también mejora el razonamiento matemático y la resolución lógica de problemas. Según un estudio del Observatorio de Innovación Educativa de la Universidad Nacional, los estudiantes que reciben formación en pensamiento computacional tienen hasta un 30% más de capacidad para estructurar procesos complejos y planificar soluciones eficientes.
+         Por otro lado, algunos docentes advierten que los principales desafíos estarán en la formación del profesorado y en garantizar la conectividad de los colegios rurales, donde aún hay limitaciones de acceso a internet y dispositivos.
+         El Gobierno, en respuesta, anunció que la segunda fase del proyecto incluirá la entrega de aulas digitales móviles y la ampliación del programa “Computadores para Educar”.
+         En palabras de la ministra Angulo:
+         “El futuro digital de Colombia comienza en las aulas. La educación tecnológica no es un lujo, es una necesidad para construir una sociedad más justa, innovadora y competitiva”.
+         Con esta apuesta, Colombia se une a países como Estonia, Finlandia y Corea del Sur, que ya integran la programación y el pensamiento lógico en sus planes de estudio desde la primaria. Si el plan logra consolidarse, la nación podría dar un paso decisivo hacia una educación moderna y conectada con el futuro.
+         El proyecto, denominado “Futuro Digital 2030”, busca preparar a las nuevas generaciones para los retos de la cuarta revolución industrial y reducir la brecha tecnológica entre zonas urbanas y rurales.
+      </p>
+       <button onclick="volver()">← Volver</button>
+   </section>
+
+   <section id="noticia4" class="noticia oculto">
+    <img src="img/Ivan-Cepeda.jpg" alt="Imagen del artículo 4" class="img1">
+      <h2>Ivan Cepeda gana consulta popular</h2>
+      <p> El senador colombiano Iván Cepeda Castro, reconocido líder del movimiento progresista y defensor de los derechos humanos, resultó vencedor este domingo en la consulta popular del Pacto Histórico, coalición de izquierda que agrupa a varios partidos y movimientos sociales.
+        Los resultados fueron anunciados por la Registraduría Nacional del Estado Civil en la noche del domingo, confirmando que Cepeda superó ampliamente a sus contendores internos dentro del bloque, entre ellos líderes de los sectores ambientalistas, sindicales y estudiantiles.
+        La jornada electoral transcurrió con normalidad, registrando una alta participación en zonas urbanas y un creciente interés de los jóvenes en los procesos políticos.
+        En su discurso de victoria, pronunciado en la Plaza de Bolívar de Bogotá ante miles de simpatizantes, Cepeda agradeció el respaldo ciudadano y destacó que su triunfo “no es personal, sino un mandato colectivo para construir una Colombia más justa, más democrática y en paz”.
+        Asimismo, prometió impulsar una agenda centrada en la justicia social, la transición energética, la lucha contra la corrupción y la reforma agraria integral.
+        “Esta victoria no es el final de una campaña, sino el inicio de una transformación. Vamos a gobernar con la gente, desde los territorios, con respeto por la diferencia y con la convicción de que la política debe ser un instrumento de dignidad”, afirmó el candidato.
+        El presidente Gustavo Petro felicitó públicamente a Cepeda por su triunfo, calificándolo como “una figura clave para la continuidad del proyecto progresista en Colombia”.
+        Petro destacó que la elección del senador es una muestra de la madurez democrática del Pacto Histórico y del fortalecimiento de los movimientos alternativos en el país.
+        Diversos analistas políticos consideran que la victoria de Cepeda representa una renovación del liderazgo dentro de la izquierda colombiana, especialmente en un contexto en el que el país enfrenta desafíos en materia económica, ambiental y de seguridad.
+        Para el politólogo Luis Fernando Ramírez, “la candidatura de Iván Cepeda unifica a un sector que busca mantener las banderas del cambio, pero con una visión más dialogante y de consenso”.
+        El nuevo candidato del Pacto Histórico iniciará una gira nacional en las próximas semanas para consolidar su base de apoyo y construir alianzas con otros movimientos sociales y sectores independientes.
+        Su equipo de campaña anunció que los ejes principales del programa serán la educación pública gratuita, la economía verde, la ampliación de derechos laborales y la defensa de la paz total.
+        Con más de 2,5 millones de votos, Cepeda se consolidó como el nuevo candidato presidencial para las elecciones de 2026, marcando un nuevo capítulo en el panorama político colombiano.
+      </p>
+      <button onclick="volver()">← Volver</button>
+   </section>
+
+   <section id="noticia5" class="noticia oculto">
+    <img src="img/imagescolpensiones.jpeg" alt="Imagen del artículo 5" class="img1">
+      <h2>Actualización sobre pensiones</h2>
+      <p>El presidente Gustavo Petro ratificó su compromiso con la protección de los fondos de pensiones y anunció la implementación de nuevos mecanismos de control y transparencia dentro del sistema pensional colombiano. Estas medidas buscan garantizar la seguridad financiera de los trabajadores y asegurar que los recursos destinados a su jubilación sean administrados de manera responsable y equitativa.
+        “Nuestro objetivo no es desmantelar lo construido, sino corregir las inequidades que durante años han afectado a los trabajadores de menores ingresos. Queremos un sistema solidario, donde quienes más tienen aporten para garantizar la vejez digna de quienes más lo necesitan”, afirmó Petro durante su intervención.
+        Según el Ministerio de Hacienda, una de las principales innovaciones será la creación de un Observatorio de Transparencia Pensional, encargado de monitorear los movimientos financieros de los fondos y de publicar informes trimestrales accesibles al público. Esta iniciativa busca frenar posibles irregularidades y fortalecer la confianza ciudadana en el sistema.
+        Además, se anunció que los trabajadores con ingresos inferiores a cuatro salarios mínimos continuarán cotizando en Colpensiones, mientras que los de mayores ingresos podrán mantener aportes complementarios en fondos privados, con el fin de preservar la libre elección y la estabilidad del mercado financiero.
+        Expertos en economía y seguridad social destacan que esta actualización del modelo pensional representa un paso importante hacia un sistema más sostenible, pero advierten sobre los retos que implica su implementación. La economista María Fernanda Gutiérrez señaló que “el éxito de la reforma dependerá de la capacidad del Estado para gestionar los recursos con independencia política y rigor técnico”.
+        El Gobierno confirmó que el nuevo modelo será presentado ante el Congreso de la República en el primer semestre de 2026, acompañado de una campaña pedagógica para informar a los ciudadanos sobre los cambios y beneficios de la reforma.
+        Durante una alocución nacional desde la Casa de Nariño, el mandatario explicó que la reforma pensional en curso no busca eliminar los fondos privados, sino fortalecer el papel del Sistema Público de Pensiones (Colpensiones), mejorando su eficiencia y asegurando una distribución más justa entre los cotizantes.
+      </p>
+      <button onclick="volver()">← Volver</button>
+   </section>
+
+   <section id="noticia6" class="noticia oculto">
+    <img src="img/carnaval.jpeg" alt="Imagen del artículo 6" class="img1">
+      <h2>El Carnaval de Barranquilla 2025 se proyecta con un impacto económico histórico</h2>
+      <p>El Carnaval de Barranquilla 2025 se perfila como uno de los eventos culturales más importantes en la historia reciente de Colombia, con un impacto económico estimado en 880 mil millones de pesos y la generación de cerca de 193 mil empleos directos e indirectos. La festividad, reconocida por la UNESCO como Obra Maestra del Patrimonio Oral e Inmaterial de la Humanidad, promete ser un motor clave para la economía del Caribe colombiano.
+        El impacto económico se distribuirá en múltiples sectores: turismo, hotelería, gastronomía, transporte y comercio en general, consolidando al carnaval como uno de los pilares del desarrollo regional. Hoteles y aerolíneas ya reportan niveles de ocupación superiores al 90%, mientras que restaurantes, bares y tiendas locales se preparan para recibir un flujo masivo de visitantes.
+        La directora de Carnaval S.A.S., Sandra Gómez, destacó que este año se busca combinar la tradición con la innovación, fortaleciendo la sostenibilidad del evento. “Queremos que el Carnaval 2025 sea un ejemplo de cómo la cultura puede impulsar el crecimiento económico y, al mismo tiempo, promover la preservación de nuestras raíces y expresiones artísticas”, señaló.
+        Entre las novedades de esta edición se incluye la Ruta del Patrimonio Cultural, un circuito que conectará los principales escenarios del carnaval con espacios históricos y museos de la ciudad, además de una agenda académica sobre economía creativa y turismo cultural.
+        El gobierno nacional, por su parte, anunció una inversión adicional en infraestructura y seguridad para garantizar el éxito del evento. El Ministerio de Comercio, Industria y Turismo confirmó el fortalecimiento de campañas de promoción internacional en países como Estados Unidos, España y México, con el fin de posicionar el Carnaval de Barranquilla como un destino turístico global.
+        Expertos del sector cultural coinciden en que esta edición del carnaval representa una oportunidad única para demostrar cómo las industrias creativas pueden dinamizar la economía y generar empleo, especialmente en regiones con alto potencial turístico.
+        Con su inconfundible alegría, colores, música y tradición, el Carnaval de Barranquilla 2025 no solo será una fiesta, sino una celebración del talento y la identidad del pueblo colombiano, proyectando al Caribe como epicentro de cultura, creatividad y desarrollo.
+        Según cifras presentadas por la Alcaldía de Barranquilla y el Ministerio de Cultura, se espera la llegada de más de 780 mil asistentes, entre turistas nacionales y extranjeros, quienes disfrutarán de los tradicionales desfiles, comparsas, conciertos y muestras gastronómicas que caracterizan esta celebración. Además, se proyecta la venta de más de 2,1 millones de entradas a los diferentes eventos oficiales y privados del carnaval.
+      </p>
+      <button onclick="volver()">← Volver</button>
+   </section>
+
+  <!-- 🔽 Sección oculta con la noticia completa <section class="noticias" > 🔽-->
+<section id="noticiaA" class="noticia oculto">
+  <img src="img/img_olaya_herrera.jpeg" alt="noticiaA">
+  <h2>La candidata de Olaya Herrera ganó el premio al mejor disfraz</h2>
+  <p class="p_oculto">Josabeth Carolina Morales Durán, representante del barrio Olaya Herrera, Sector Central, en el Reinado de la Independencia de Cartagena 2025:
+    Barrio y Sector: Olaya Herrera, Sector Central.
+    Edad y Profesión: Tiene 20 años y es Ingeniera Industrial.
+    Logros Destacados:
+    Ganó el premio al mejor disfraz en la Noche de Tradición Festiva con un homenaje al cantante de salsa Joe Arroyo, conocido como "el Centurión de la salsa".
+    Proyecto Comunitario: Su proyecto se titula "Olaya vive las fiestas bogando nuestra identidad".
+    Objetivo del Proyecto: Busca mantener viva la tradición del 11 de noviembre en la memoria de niños, jóvenes y adultos, a través de actividades culturales como cabildos.
+    Trayectoria: Es una joven que, según fuentes locales, encarna el espíritu vibrante y la fuerza comunitaria de su barrio. También se ha mencionado que ha brillado en otros espacios, como el programa televisivo "Desafío".
+    Presentación Oficial: Su presentación oficial como candidata tuvo lugar en el Camellón de los Mártires, un evento que marcó el inicio de las fiestas.
+    Josabeth Carolina Morales Durán.</p>
+  <button onclick="volver()">Volver</button>
+</section>
+
+<section id="noticiaB" class="noticia oculto">
+  <img src="img/Atentado-Cali-Ivan-Mordisco.jpeg" alt="noticiaB">
+  <h2>Mindefensa atribuye a disidencias de 'Iván Mordisco'
+      el atentado con carrobomba en Suárez, Cauca, y ofrece recompensa</h2>
+  <p>El ministro de Defensa, Pedro Sánchez, atribuyó a las disidencias de alias Iván Mordisco 
+    el atentado con carrobomba que fue perpetrado en la madrugada de este lunes festivo cerca de la
+     estación de Policía del municipio de Suárez, Cauca, dejando como saldo dos personas muertas.
+    “Rechazo el cobarde atentado terrorista perpetrado por las disidencias del narco-criminal alias 
+    Mordisco en Suárez, Cauca, mediante un vehículo cargado con explosivos, lanzamiento de cilindros 
+    y ráfagas de fusil que habrían asesinado a dos civiles y herido a un policía”, escribió el ministro
+    en su cuenta de X.Agregó que “este hecho demuestra el desespero cobarde de la estructura criminal ante 
+    la pérdida de control territorial y el debilitamiento de sus finanzas ilegales derivadas del narcotráfico,
+    la minería ilegal y la extorsión, esto como resultado de la presión sostenida de nuestras Fuerzas Militares
+    y de Policía”.El jefe de la cartera de Defensa ofreció hasta $200 millones de recompensa por información que 
+    “permita anticipar y evitar hechos similares”.
+    Asimismo, anunció que se reunió este lunes con la cúpula militar y policial, y después lo hará con autoridades
+    regionales para fortalecer las operaciones que se han adelantando en Valle del Cauca, Cauca y Nariño, “donde hemos 
+    neutralizado a 724 integrantes de los GAO (23 % más que en el 2024)”, destacó.</p>
+  <button onclick="volver()">Volver</button>
+</section>
+
+
+    <!-- SECCIÓN FINAL DE NOTICIAS (antes del footer) -->
+<section class="bottom-news">
+    <h3 class="section-title">Más noticias</h3>
+
+    <div class="news-row">
+        <article class="news-item">
+            <img src="img/Juanga-2.jpg" alt="Noticia sociedad 1">
+            <h4>SOCIEDAD</h4>
+            <p>Juan Gabriel, el artista que siempre pensó en la eternidad.</p>
+        </article>
+
+        <article class="news-item">
+            <img src="img/Giro-de-Rigo.jpg" alt="Noticia sociedad 2">
+            <h4>DEPORTE</h4>
+            <p>El Giro de RIGO; mas de 8.000 ciclistas dieron inicio al primer evento en la ciudad de barranquilla de esta categoria</p>
+        </article>
+
+        <article class="news-item">
+            <img src="img/thrump_maduro.jpeg" alt="Noticia mundo">
+            <h4>MUNDO</h4>
+            <p>Trump cuestiona una guerra con Venezuela, pero advierte que Maduro tendría los días contados.</p>
+        </article>
+
+        <article class="news-item">
+            <img src="img/lideres_sociales.jpeg" alt="Noticia país">
+            <h4>PAÍS</h4>
+            <p>Gobierno anuncia nuevas medidas tras denuncias de líderes sociales.</p>
+        </article>
+    </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 ASOTEL  - Todos los derechos reservados</p>
+    </footer>
+
+<script src="js/script.js"></script>
+
+
+<script>
+  function crearCopo() {
+    const contenedor = document.querySelector('.nieve-nav');
+    const copo = document.createElement('div');
+
+    copo.classList.add('snowflake');
+    copo.textContent = '❄';
+
+    // posición aleatoria
+    copo.style.left = Math.random() * contenedor.offsetWidth + 'px';
+
+    // tamaño aleatorio
+    copo.style.fontSize = (10 + Math.random() * 10) + 'px';
+
+    // duración aleatoria
+    copo.style.animationDuration = (2 + Math.random() * 3) + 's';
+
+    contenedor.appendChild(copo);
+
+    // limpiar copos viejos
+    setTimeout(() => copo.remove(), 5000);
+  }
+
+  // Crear un copo cada 200ms
+  setInterval(crearCopo, 200);
+</script>
+</body>
