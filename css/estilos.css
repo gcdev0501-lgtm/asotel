@@ -671,6 +671,92 @@ input[type="text"]:focus {
     display: flex;
 }
 
+/* ASIDE NOCHE DE VELITAS - ASOTEL */
+
+.aside-velitas-estrellas {
+    background: linear-gradient(180deg, #fdfff0, #c6db0a);
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f3d0a4;
+}
+
+.titulo-velitas2 {
+    color: #b63300;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.velas-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 10px;
+}
+
+.vela {
+    width: 32px;
+    height: 100px;
+    position: relative;
+}
+
+.cuerpo {
+    width: 32px;
+    height: 70px;
+    background: #ffe0ad;
+    border-radius: 6px;
+    border: 1px solid #d8ae73;
+    margin-top: 20px;
+}
+
+.flama {
+    width: 18px;
+    height: 22px;
+    background: radial-gradient(circle, #fff7cc, #ffb84d, #ff6600);
+    border-radius: 50% 50% 40% 40%;
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    animation: flama 1.7s infinite ease-in-out;
+}
+
+@keyframes flama {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.8); opacity: 0.85; }
+}
+
+.texto-velita2 {
+    font-size: 0.92rem;
+    color: #5a3a28;
+    padding: 0 14px;
+}
+
+/* Estrellas animadas */
+.estrellas::before,
+.estrellas::after {
+    content: "✨✨✨✨✨";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    opacity: 0.7;
+    color: #ffcf58;
+    animation: subir 6s linear infinite;
+}
+
+.estrellas::after {
+    animation-delay: 2s;
+}
+
+@keyframes subir {
+    0% { top: 100%; opacity: 0; }
+    30% { opacity: 0.9; }
+    100% { top: -10%; opacity: 0; }
+}
+
 /* ----- SECCIÓN DE NOTICIAS INFERIORES ANCHAS ----- */
 .bottom-news {
   display: none;
