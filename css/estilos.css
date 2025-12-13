@@ -671,92 +671,89 @@ input[type="text"]:focus {
     display: flex;
 }
 
-/* ASIDE NOCHE DE VELITAS - ASOTEL */
+/*junior tu papa*/
 
-.aside-velitas-estrellas {
-    background: linear-gradient(180deg, #fdfff0, #c6db0a);
-    padding: 22px;
-    border-radius: 14px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #f3d0a4;
+.aside-junior-vertical {
+  background-color: #fff3f3;
+  border-left: 8px solid #c0392b;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  min-height: 500px; /* hace el aside más alto */
 }
 
-.titulo-velitas2 {
-    color: #b63300;
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-    font-weight: 700;
+.aside-junior-vertical h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #c0392b;
+  text-align: center;
 }
 
-.velas-contenedor {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    margin-bottom: 10px;
+.img-victoria {
+  width: 100%;
+  height: auto;
+  margin: 15px 0;
+  border-radius: 6px;
 }
 
-.vela {
-    width: 32px;
-    height: 100px;
-    position: relative;
+.aside-junior-vertical p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
 }
 
-.cuerpo {
-    width: 32px;
-    height: 70px;
-    background: #ffe0ad;
-    border-radius: 6px;
-    border: 1px solid #d8ae73;
-    margin-top: 20px;
+.destacado {
+  background-color: #ffecec;
+  padding: 12px;
+  margin: 15px 0;
+  border-left: 5px solid #c0392b;
 }
 
-.flama {
-    width: 18px;
-    height: 22px;
-    background: radial-gradient(circle, #fff7cc, #ffb84d, #ff6600);
-    border-radius: 50% 50% 40% 40%;
-    position: absolute;
-    left: 6px;
-    top: -2px;
-    animation: flama 1.7s infinite ease-in-out;
+.destacado strong {
+  font-size: 1rem;
+  color: #922b21;
 }
 
-@keyframes flama {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(0.8); opacity: 0.85; }
+.proxima-fecha {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #ffffff;
+  border: 1px  #c0392b;
+  text-align: left;
 }
 
-.texto-velita2 {
-    font-size: 0.92rem;
-    color: #5a3a28;
-    padding: 0 14px;
+.proxima-fecha h4 {
+  margin: 0 0 6px 0;
+  color: #c0392b;
+  font-size: 1rem;
 }
 
-/* Estrellas animadas */
-.estrellas::before,
-.estrellas::after {
-    content: "✨✨✨✨✨";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1rem;
-    opacity: 0.7;
-    color: #ffcf58;
-    animation: subir 6s linear infinite;
+.proxima-fecha p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #333;
 }
 
-.estrellas::after {
-    animation-delay: 2s;
+.proxima-fecha span {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
 }
 
-@keyframes subir {
-    0% { top: 100%; opacity: 0; }
-    30% { opacity: 0.9; }
-    100% { top: -10%; opacity: 0; }
+.instagram-link {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #ca1313;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
+.instagram-link:hover {
+  background-color: #7e0000;
+}
 
 /* ----- SECCIÓN DE NOTICIAS INFERIORES ANCHAS ----- */
 .bottom-news {
