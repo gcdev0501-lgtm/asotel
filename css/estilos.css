@@ -693,6 +693,7 @@ input[type="text"]:focus {
   height: auto;
   margin: 15px 0;
   border-radius: 6px;
+  display: block;
 }
 
 .aside-junior-vertical p {
@@ -755,6 +756,13 @@ input[type="text"]:focus {
   background-color: #7e0000;
 }
 
+/* 📱 SOLO PARA CELULARES */
+@media (max-width: 768px) {
+  .img-victoria {
+    max-height: 220px;   /* controla el alto */
+    object-fit: cover;  /* recorta sin deformar */
+  }
+}
 /* ----- SECCIÓN DE NOTICIAS INFERIORES ANCHAS ----- */
 .bottom-news {
   display: none;
